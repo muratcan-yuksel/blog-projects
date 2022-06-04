@@ -2,14 +2,11 @@
   <div class="app">
     <!-- <h1 class="title">Characters</h1> -->
     <div
-      v-for="(item, key) in data"
+      v-for="(item, key) in changedData"
       :key="key"
       class="card"
       @click="handleClick(item)"
-      :class="{
-        greenBorder: item.isComing,
-        // anotherClassName: item.anotherCondition,
-      }"
+      :class="[item.isGoing ? 'going' : 'notGoing']"
     >
       <div class="para">{{ item.name }} {{ item.surName }}</div>
     </div>
@@ -40,12 +37,10 @@ const getData = async () => {
   }
 };
 
-// const changeData = () => {
-//   let newArr = data.value.map((item) => {
-//     item["isGoing"] = false;
-//   });
-//   console.log(newArr);
-// };
+const handleClick = (item) => {
+  item.isGoing = !item.isGoing;
+  console.log(item);
+};
 
 onMounted(() => {
   getData();
@@ -71,5 +66,12 @@ onMounted(() => {
 }
 .para {
   font-weight: 700;
+}
+.going {
+  border: 5px solid green;
+  text-decoration: none;
+}
+.notGoing {
+  text-decoration: line-through;
 }
 </style>
