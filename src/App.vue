@@ -1,21 +1,19 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <div>
+    <h1 class="title">The team</h1>
+    <div class="card" v-for="(item, key) in data" :key="key"></div>
+  </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<script setup>
+import { ref } from "vue";
+import childComponent from "./components/childComponent.vue";
+
+const data = [
+  { name: "Anakin", surName: "Skywalker", isJedi: true },
+  { name: "Padmé", surName: "Amidala", isJedi: false },
+  { name: "Obi-Wan", surName: "Kenobi", isJedi: true },
+];
+</script>
+
+<style scoped></style>
