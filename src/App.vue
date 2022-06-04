@@ -7,7 +7,7 @@
       class="card"
       @click="handleClick(item)"
       :class="{
-        greenBorder: item.isJedi,
+        greenBorder: item.isComing,
         // anotherClassName: item.anotherCondition,
       }"
     >
@@ -17,21 +17,35 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 import axios from "axios";
 import childComponent from "./components/childComponent.vue";
 
 const data = ref();
+const changedData = ref();
 
 const getData = async () => {
   try {
     const res = await axios.get("../public/data/data.json");
     console.log(res.data);
     data.value = res.data.items;
+    changedData.value = res.data.items.map((item) => ({
+      ...item,
+      isGoing: false,
+    }));
+    console.log(res.data.items);
+    console.log(changedData.value);
   } catch (error) {
     console.log(error);
   }
 };
+
+// const changeData = () => {
+//   let newArr = data.value.map((item) => {
+//     item["isGoing"] = false;
+//   });
+//   console.log(newArr);
+// };
 
 onMounted(() => {
   getData();
