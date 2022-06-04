@@ -1,0 +1,7 @@
+{
+  "items": [
+    { "name": "Anakin", "surName": "Skywalker" },
+    { "name": "Padmé", "surName": "Amidala" },
+    { "name": "Obi-Wan", "surName": "Kenobi" }
+  ]
+}
