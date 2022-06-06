@@ -62,7 +62,6 @@ onMounted(() => {
   width: 250px;
   height: 50px;
   border-radius: 16px;
-  background-color: #ffe01b;
 }
 .para {
   font-weight: 700;
@@ -70,8 +69,9 @@ onMounted(() => {
 .going {
   border: 5px solid green;
   text-decoration: none;
+  background-color: rgb(56, 219, 56);
 }
 .notGoing {
-  text-decoration: line-through;
+  background-color: #ffe01b;
 }
 </style>
