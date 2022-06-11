@@ -1,7 +1,6 @@
 <template>
   <div class="app">
-    <!-- <h1 class="title">Characters</h1> -->
-    <div
+    <!-- <div
       v-for="(item, key) in changedData"
       :key="key"
       class="card"
@@ -9,7 +8,12 @@
       :class="[item.isGoing ? 'going' : 'notGoing']"
     >
       <div class="para">{{ item.name }} {{ item.surName }}</div>
-    </div>
+    </div> -->
+    <child-component
+      v-for="(item, key) in changedData"
+      :key="key"
+      :data="item"
+    />
   </div>
 </template>
 
@@ -26,9 +30,10 @@ const getData = async () => {
     const res = await axios.get("../public/data/data.json");
     console.log(res.data);
     data.value = res.data.items;
-    changedData.value = res.data.items.map((item) => ({
+    changedData.value = res.data.items.map((item, index) => ({
       ...item,
       isGoing: false,
+      data: index,
     }));
     console.log(res.data.items);
     console.log(changedData.value);
