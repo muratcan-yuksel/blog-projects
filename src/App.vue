@@ -10,6 +10,8 @@
       <div class="para">{{ item.name }} {{ item.surName }}</div>
     </div> -->
     <child-component
+      @click="handleClick(item)"
+      :class="[item.isGoing ? 'going' : 'notGoing']"
       v-for="(item, key) in changedData"
       :key="key"
       :data="item"

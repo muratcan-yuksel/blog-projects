@@ -22,12 +22,4 @@ const props = defineProps({
 .para {
   font-weight: 700;
 }
-.going {
-  border: 5px solid green;
-  text-decoration: none;
-  background-color: rgb(56, 219, 56);
-}
-.notGoing {
-  background-color: #ffe01b;
-}
 </style>
